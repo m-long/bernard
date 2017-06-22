@@ -1,0 +1,12 @@
+<% provide(:title, full_title("#{@user.full_name}\'s Profile")) %>
+
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.full_name %>
+</h1>
+
+<p>
+  <% if !@user.activated? %>
+    <em>User Inactive</em>
+  <% end %>
+</p>

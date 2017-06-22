@@ -1,0 +1,39 @@
+matt:
+  first_name: Matt
+  last_name: Long
+  email: m@mattlong.la
+  password_digest: <%= User.digest('P@ssw0rd') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+archer:
+  first_name: Stirling
+  last_name: Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('P@ssw0rd') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+lana:
+  first_name: Lana
+  last_name: Kane
+  email: big_hands@danger.zone
+  password_digest: <%= User.digest('P@ssw0rd') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+mallory:
+  first_name: Mallory
+  last_name: Archer
+  email: mallory@isis.gov
+  password_digest: <%= User.digest('P@ssw0rd') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+cyril:
+  first_name: Cyril
+  last_name: Figgis
+  email: stirfriday@isis.gov
+  password_digest: <%= User.digest('P@ssw0rd') %>
+  activated: false
