@@ -9,28 +9,36 @@ class User < ApplicationRecord
   ## Force user first and last names to be between 3 and 50 characters
   ## Names also must only use valid characters, but can be any language
   VALID_NAME_REGEX = /\A[\p{L}-]+\z/
-  validates :first_name,  presence: true, length: { in: 2..50 },
-                          format: { with: VALID_NAME_REGEX }
-  validates :last_name,   presence: true, length: { in: 2..50 },
-                          format: { with: VALID_NAME_REGEX }
+  validates :first_name,
+              presence: true,
+              length: { in: 2..50 },
+              format: { with: VALID_NAME_REGEX }
+  validates :last_name,
+              presence: true,
+              length: { in: 2..50 },
+              format: { with: VALID_NAME_REGEX }
 
   # Email validations
   ## Ensure emails in db are lowercase
   before_save :downcase_email
   ## For emails to have relatively adequate formatting
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, presence: true, length: { in: 6..255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false  }
+  validates :email,
+              presence: true,
+              length: { in: 6..255 },
+              format: { with: VALID_EMAIL_REGEX },
+              uniqueness: { case_sensitive: false  }
 
   # Password validations
   ## Add in secure password using Rails method; require password_digest on model
   has_secure_password
   ## Regex for one lower case letter, one upper case letter, a digit, and a symbol
   VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[-+_!@#$%^&*.,?])).+\z/
-  validates :password, presence: true, length: { minimum: 6 },
-                       format: { with: VALID_PASSWORD_REGEX },
-                       allow_nil: true
+  validates :password,
+              presence: true,
+              length: { minimum: 6 },
+              format: { with: VALID_PASSWORD_REGEX },
+              allow_nil: true
 
   # Methods
   ## Methods for handling user names
