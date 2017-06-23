@@ -13,6 +13,7 @@
 # Ignore other db files
 /db/schema.rb
 /db/seeds.rb
+/db/seeds/*
 
 # Ignore all logfiles and tempfiles.
 /log/*
