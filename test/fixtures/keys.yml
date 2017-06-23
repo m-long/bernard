@@ -1,25 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Key_Power:
+key_power:
   name: KEY_POWER
-  value: 0x40BF
-  remote: test_remote
-  remote: minimum_remote
+  value: "0x40BF"
+  remotes: test_remote
 
-Key_TV:
+key_tv:
   name: KEY_TV
-  value: 0xD827
-  remote: test_remote
+  value: "0xD827"
+  remotes: test_remote
 
-Key_1:
+key_one:
   name: KEY_1
-  value: 0x20DF
-  remote: test_remote
+  value: "0x20DF"
+  remotes: test_remote
 
-Key_2:
+key_two:
   name: KEY_2
-  value: 0xA05F
+  value: "0xA05F"
+  remotes: minimal_remote
 
-Key_3:
+key_three:
   name: KEY_3
-  value: 0x609F
+  value: "0x609F"
+  remotes: minimal_remote

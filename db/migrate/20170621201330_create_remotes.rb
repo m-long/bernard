@@ -3,7 +3,7 @@ class CreateRemotes < ActiveRecord::Migration[5.0]
     create_table :remotes do |t|
       t.string :name, null: false, limit: 50
       t.string :brand
-      t.string :model
+      t.string :model, null: false, limit: 50
       t.string :supported_devices, limit: 50
       t.integer :bits
       t.string :flags
@@ -36,6 +36,9 @@ class CreateRemotes < ActiveRecord::Migration[5.0]
       t.string :repeat_mask
       t.integer :frequency
       t.integer :duty_cycle,       limit: 1
+
+      # Don't allow duplicate models
+      t.index [:model], unique: true
 
       t.timestamps
     end

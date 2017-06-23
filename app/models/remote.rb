@@ -1,16 +1,27 @@
 class Remote < ApplicationRecord
   # Associations
-  has_and_belongs_to_many :key
+  has_and_belongs_to_many :keys
   ## ensures all keys with the remote are valid as well
-  validates_associated :key
+  validates_associated :keys
 
   # Validations
   ## mirror db validations in the model
+  VALID_NAME_REGEX = /\A[\w -]+\z/
   validates :name, 
+              format: { with: VALID_NAME_REGEX },
+              length: { in: 2..50 },
+              presence: true
+  VALID_MODEL_REGEX = /\A[\w -]+\z/
+  validates :model,
+              format: { with: VALID_MODEL_REGEX },
+              length: { in: 2..50 },
               presence: true,
-              length: { in: 2..50 }
+              uniqueness: true
+  ## ideally should match the devices list on the Bernard Alexa skill
+  VALID_DEVICE_REGEX = /\A[a-zA-Z ]+\z/
   validates :supported_devices,
               allow_nil: true,
+              format: { with: VALID_DEVICE_REGEX },
               length: { in: 2..50 }
   validates :eps,
               allow_nil: true,
@@ -41,16 +52,22 @@ class Remote < ApplicationRecord
                           RAW_CODES
                           REPEAT_HEADER
       )
-      flags = flags.split("|").strip
-      # make sure no repeated flags
-      if flags.unique != flags
-        errors.add(:flags, "must not have repeated flags")
-      end
-      # validate all flags are allowed, must be case-sensitive
-      flags.each do |flag|
-        unless flag.in? allowed_flags
-          errors.add(:flags, "has improper flag: #{flag}")
+      unless self.flags.blank?
+        # validate flags are allowed
+        flag_array = self.flags.split("|")
+        # make sure no repeated flags
+        flag_array.each do |flag|
+          flag.squish!
         end
+        flag_array.uniq! # remove any duplicate flags
+        # validate all flags are allowed, must be case-sensitive
+        flag_array.each do |flag|
+          unless flag.in? allowed_flags
+            errors.add(:flags, "has improper flag: #{flag}")
+          end
+        end
+        # Clean and rebuild flag string
+        self.flags = flag_array.join(' | ')
       end
     end
 end
