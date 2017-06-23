@@ -1,8 +1,8 @@
-# Rails App Skeleton
+# Bernard
 
-## The skeleton
+## Hello!
 
-This is a generic skeleton for Rails websites with a basic user/admin system enabled. It is based off of the Michael Hartl tutorial as a rudimentary starting point.
+I am the first iteration of the controller for the home control AI that I may one day become. But for now I am just a Rails app to serve both as an endpoint for an Amazon Alexa skill and to control the bedroom TV.
 
 ## Questions
 
