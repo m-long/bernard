@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bedroom_tv:
+  name: "Bedroom TV"
+  location: bedroom
+  device_model: samsung_tv
+
+bedroom_sound_system:
+  name: "Bedroom speakers"
+  location: bedroom
+  device_model: sony_sound_system

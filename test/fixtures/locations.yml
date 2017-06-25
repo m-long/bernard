@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bedroom:
+  name: "bedroom"
+  user: archer
+
+living_room:
+  name: "living room"
+  user: archer

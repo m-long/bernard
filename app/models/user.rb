@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # Associations
+  has_many :locations, dependent: :destroy
+  has_many :devices, through: :locations
 
   # Token validation
   ## Attribute accessor for remember, activation, and reset tokens

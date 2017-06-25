@@ -37,8 +37,10 @@ test_remote:
   #frequency: 1
   #duty_cycle: 1
   keys: key_power, key_tv, key_one
+  device_models: sumsung_tv
 
 minimal_remote:
   name: Minimal Remote in Fixtures
   model: MinRem-001
   keys: key_two, key_three
+  device_models: sony_sound_system

@@ -2,6 +2,8 @@ require 'test_helper'
 
 class KeyTest < ActiveSupport::TestCase
 
+  #TODO tests for REGEX validation on all attributes
+
   def setup
     @test_key = keys(:key_power)
   end
@@ -24,8 +26,6 @@ class KeyTest < ActiveSupport::TestCase
     @test_key.name = "a" * 51
     assert_not @test_key.valid?
   end
-
-  #TODO tests for REGEX validation on name
 
   ## value validation
   test "value should be present" do
@@ -53,11 +53,17 @@ class KeyTest < ActiveSupport::TestCase
 
   ## other validators
   test "name-value pair should be unique" do
-    same_name_key = Key.create(name: @test_key.name, value: "0xd1ff")
+    same_name_key = Key.create(name: @test_key.name,
+                               value: "0xd1ff"
+                              )
     assert same_name_key.valid?
-    same_value_key = Key.create(name: "KEY_DIFFERENT", value: @test_key.value)
+    same_value_key = Key.create(name: "KEY_DIFFERENT",
+                                value: @test_key.value
+                               )
     assert same_value_key.valid?
-    duplicate_key = @test_key.dup
+    duplicate_key = Key.create(name: @test_key.name,
+                               value: @test_key.value
+                              )
     assert_not duplicate_key.valid?
   end
 end

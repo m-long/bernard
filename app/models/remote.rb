@@ -1,6 +1,7 @@
 class Remote < ApplicationRecord
   # Associations
   has_and_belongs_to_many :keys
+  has_and_belongs_to_many :device_models
   ## ensures all keys with the remote are valid as well
   validates_associated :keys
 

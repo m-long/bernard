@@ -12,6 +12,9 @@ gem 'jbuilder',       '~> 2.4.1'
 # bcrypt gem for password encryption
 gem 'bcrypt',         '>= 3.1.11'
 
+# mqtt gems
+gem 'mqtt',           '~>0.5'
+
 group :development, :test do
   gem 'sqlite3', '~> 1.3.11'
   gem 'byebug',  '~> 9.0.0', platform: :mri

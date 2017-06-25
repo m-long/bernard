@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+samsung_tv:
+  brand: "Samsung"
+  device_type: "tv"
+  model: "LN32D403"
+  remotes: test_remote
+
+sony_sound_system:
+  brand: "Sony"
+  device_type: "sound system"
+  model: "BDV-E780W"
+  remotes: minimal_remote

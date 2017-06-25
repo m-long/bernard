@@ -2,6 +2,8 @@ require 'test_helper'
 
 class RemoteTest < ActiveSupport::TestCase
 
+  #TODO tests for REGEX validation on all attributes
+
   def setup
     @test_remote    = remotes(:test_remote)
     @minimal_remote = remotes(:minimal_remote)
@@ -26,8 +28,4 @@ class RemoteTest < ActiveSupport::TestCase
     @test_remote.name = "a" * 51
     assert_not @test_remote.valid?
   end
-
-  #TODO tests for REGEX validation on name
-
-  #TODO tests for REGEX validation on value
 end

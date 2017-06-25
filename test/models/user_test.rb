@@ -2,6 +2,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+  # TODO add validations for location dependent: :destroy and
+  # that user.devices exists (through locations)
+  # may also need to add in user.remotes too if can get functional
+
   def setup
     @user = User.new(first_name: "Example", last_name: "User", email: "user@example.com",
                     password: "foobar@3A", password_confirmation: "foobar@3A")
