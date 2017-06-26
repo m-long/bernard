@@ -2,12 +2,12 @@
 
 samsung_tv:
   brand: "Samsung"
-  device_type: "tv"
+  device_type: tv
   model: "LN32D403"
   remotes: test_remote
 
 sony_sound_system:
   brand: "Sony"
-  device_type: "sound system"
+  device_type: sound_system
   model: "BDV-E780W"
   remotes: minimal_remote

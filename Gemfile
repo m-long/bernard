@@ -27,6 +27,8 @@ group :development do
   gem 'listen',                '~> 3.0.8'
   gem 'spring',                '~> 1.7.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Gem to create seeds.rb from database
+  gem 'seed_dump'
 end
 
 group :test do
