@@ -2,6 +2,9 @@ class Remote < ApplicationRecord
   # Associations
   has_and_belongs_to_many :keys
   has_and_belongs_to_many :device_models
+  belongs_to :brand,
+               class_name: "RemoteBrand",
+               foreign_key: "remote_brand_id"
   ## ensures all keys with the remote are valid as well
   validates_associated :keys
 
@@ -12,10 +15,7 @@ class Remote < ApplicationRecord
               format: { with: VALID_NAME_REGEX },
               length: { in: 2..50 },
               presence: true
-  VALID_BRAND_REGEX = /\A[\w -]+\z/
   validates :brand, 
-              format: { with: VALID_BRAND_REGEX },
-              length: { in: 2..50 },
               presence: true
   VALID_MODEL_REGEX = /\A[\w -]+\z/
   validates :model,

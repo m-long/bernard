@@ -3,7 +3,8 @@ class Device < ApplicationRecord
   belongs_to :location
   belongs_to :device_model
   has_many :remotes, through: :device_model
-  has_one :user, through: :location
+  has_one :user, through: :location, inverse_of: :devices
+  has_one :brand, through: :device_model, source: :model
   
   # Validations
   ## mirror db validations in the model

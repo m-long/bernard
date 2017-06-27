@@ -7,6 +7,8 @@ class RemoteTest < ActiveSupport::TestCase
   def setup
     @test_remote    = remotes(:test_remote)
     @minimal_remote = remotes(:minimal_remote)
+    @samsung        = remote_brands(:samsung)
+    @sony           = remote_brands(:sony)
   end
 
   test "should be valid" do
@@ -31,16 +33,7 @@ class RemoteTest < ActiveSupport::TestCase
   
   ## brand validation
   test "brand should be present" do
-    @test_remote.brand = "   "
-    assert_not @test_remote.valid?
-  end
-
-  test "brand should be between 2 and 50 characters" do
-    @test_remote.brand = "a"
-    assert_not @test_remote.valid?
-    @test_remote.brand = "a" * 50
-    assert @test_remote.valid?
-    @test_remote.brand = "a" * 51
+    @test_remote.brand = nil
     assert_not @test_remote.valid?
   end
 end

@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 test_remote:
-  name: Samsung_BN59_00856A
-  brand: Samsung
+  name: "Samsung_BN59_00856A"
+  brand: samsung
   model: BN59-00856A
   supported_devices: Samsung big screen tv
   bits: 16
@@ -41,7 +41,7 @@ test_remote:
 
 minimal_remote:
   name: Minimal Remote in Fixtures
-  brand: Samsung
+  brand: samsung
   model: MinRem-001
   keys: key_two, key_three
   device_models: sony_sound_system

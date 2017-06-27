@@ -9,6 +9,8 @@ class DeviceModelTest < ActiveSupport::TestCase
     @samsung_tv        = device_models(:samsung_tv)
     @sony_sound_system = device_models(:sony_sound_system)
     @tv                = device_types(:tv)
+    @samsung           = device_brands(:samsung)
+    @sony              = device_brands(:sony)
   end
 
   test "should be valid" do
@@ -18,21 +20,7 @@ class DeviceModelTest < ActiveSupport::TestCase
 
   ## brand validation
   test "brand should be present" do
-    @samsung_tv.brand = "   "
-    assert_not @samsung_tv.valid?
-  end
-
-  test "brand should be in allowed list only" do
-    @samsung_tv.brand = "Not In List"
-    assert_not @samsung_tv.valid?
-    @samsung_tv.brand = "Sony"
-    assert @samsung_tv.valid?
-  end
-
-  test "brand should be between 2 and 50 characters" do
-    @samsung_tv.brand = "a"
-    assert_not @samsung_tv.valid?
-    @samsung_tv.brand = "a" * 51
+    @samsung_tv.brand = nil
     assert_not @samsung_tv.valid?
   end
 
@@ -48,7 +36,7 @@ class DeviceModelTest < ActiveSupport::TestCase
     assert_not @samsung_tv.valid?
   end
 
-  test "bmodel should be between 2 and 50 characters" do
+  test "model should be between 2 and 50 characters" do
     @samsung_tv.model = "a"
     assert_not @samsung_tv.valid?
     @samsung_tv.model = "a" * 50
@@ -58,7 +46,7 @@ class DeviceModelTest < ActiveSupport::TestCase
   end
 
   test "model should be unique with brand" do
-    same_model_tv = DeviceModel.create(brand: "Sony", 
+    same_model_tv = DeviceModel.create(brand: @sony, 
                                        device_type: @tv,
                                        model: @samsung_tv.model
                                       )
