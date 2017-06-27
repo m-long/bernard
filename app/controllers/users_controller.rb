@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     flash[:success] = "User #{user.first_name} deleted"
-    redirect_to users_url
+    redirect_to root_url
   end
 
   # Private methods

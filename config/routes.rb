@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   ## Routes for password resets
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+  ## Routes for remotes
+  resources :remotes, only: [:new, :create, :show, :edit, :update, :destroy]
 end

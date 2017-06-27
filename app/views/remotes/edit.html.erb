@@ -1,0 +1,15 @@
+<% provide(:title, "Edit #{@remote.name}") %>
+<% provide(:form_url, remote_path(@remote)) %>
+<% provide(:button_text, 'Save changes') %>
+
+<h1>Update Remote <%= @remote.name %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "delete", @remote, method: :delete,
+                    data: { confirm: "Delete remote #{@remote.name}?" } %>
+    <% end %>
+  </div>
+</div>

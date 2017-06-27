@@ -41,6 +41,7 @@ test_remote:
 
 minimal_remote:
   name: Minimal Remote in Fixtures
+  brand: Samsung
   model: MinRem-001
   keys: key_two, key_three
   device_models: sony_sound_system

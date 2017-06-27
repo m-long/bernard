@@ -12,13 +12,19 @@ class Remote < ApplicationRecord
               format: { with: VALID_NAME_REGEX },
               length: { in: 2..50 },
               presence: true
+  VALID_BRAND_REGEX = /\A[\w -]+\z/
+  validates :brand, 
+              format: { with: VALID_BRAND_REGEX },
+              length: { in: 2..50 },
+              presence: true
   VALID_MODEL_REGEX = /\A[\w -]+\z/
   validates :model,
               format: { with: VALID_MODEL_REGEX },
               length: { in: 2..50 },
               presence: true,
-              uniqueness: true
-  ## ideally should match the devices list on the Bernard Alexa skill
+              uniqueness: { scope: :brand,
+                            message: "Remote already exists." }
+  ## ideally should create HABTM for device_models relation rather than string
   VALID_DEVICE_REGEX = /\A[a-zA-Z ]+\z/
   validates :supported_devices,
               allow_nil: true,

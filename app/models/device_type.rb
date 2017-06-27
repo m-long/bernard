@@ -8,6 +8,8 @@ class DeviceType < ApplicationRecord
   VALID_DEVICE_TYPES = %w(tv
                           sound\ system
                           media\ player
+                          outlet
+                          light
                          )
   validates :name,
               format: { with: VALID_DEVICE_TYPE_REGEX },

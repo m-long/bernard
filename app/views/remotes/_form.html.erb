@@ -1,0 +1,14 @@
+<%= form_for(@remote, url: yield(:form_url)) do |f| %>
+  <%= render 'shared/error_messages', object: @remote %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :brand %>
+  <%= f.text_field :brand, class: 'form-control' %>
+
+  <%= f.label :model %>
+  <%= f.text_field :model, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
