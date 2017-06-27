@@ -13,7 +13,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def setup
-    @base_title="mattlong.la"
+    @base_title="Bernard.ai"
   end
 
   # Returns true if a test user is logged in
