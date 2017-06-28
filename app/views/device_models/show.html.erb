@@ -1,0 +1,20 @@
+<% provide(:title, full_title("#{@device_model.model}")) %>
+
+<h1>
+  <%= "#{@device_model.model}" %>
+</h1>
+<h2>
+  Devices:
+</h2>
+<ul>
+  <% @device_model.devices.each do |device| %>
+    <li><%= device.name %></li>
+  <% end %>
+</ul>
+
+<p>
+  Device type: <%= @device_model.device_type.name %>
+</p>
+<p>
+  Brand: <%= @device_model.brand.name %>
+</p>

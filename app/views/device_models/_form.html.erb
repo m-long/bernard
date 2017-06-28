@@ -1,0 +1,14 @@
+<%= form_for(@device_model, url: yield(:form_url)) do |f| %>
+  <%= render 'shared/error_messages', object: @device_model %>
+
+  <%= f.label :model %>
+  <%= f.text_field :model, class: 'form-control' %>
+
+  <%= f.label :device_brand_id, "Brand" %>
+  <%= f.select :device_brand_id, @device_brands.collect { |b| [ b.name, b.id ] }, { include_blank: false }, { class: 'form-control' } %>
+
+  <%= f.label :device_type_id, "Type" %>
+  <%= f.select :device_type_id, @device_types.collect { |t| [ t.name, t.id ] }, { include_blank: false }, { class: 'form-control' } %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

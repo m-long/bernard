@@ -1,0 +1,13 @@
+<% provide(:title, "Edit #{@device_model.model}") %>
+<% provide(:form_url, device_models_path(@device_model)) %>
+<% provide(:button_text, 'Save changes') %>
+
+<h1>Update Model <%= @device_model.model %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "delete", @device_model, method: :delete,
+                    data: { confirm: "Delete remote #{@device_model.model}?" } %>
+    <% end %>

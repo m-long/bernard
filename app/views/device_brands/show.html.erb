@@ -11,3 +11,11 @@
     <li><%= device.name %></li>
   <% end %>
 </ul>
+<h2>
+  Device Models:
+</h2>
+<ul>
+  <% @device_brand.models.each do |model| %>
+    <li><%= model.model %></li>
+  <% end %>
+</ul>
