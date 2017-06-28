@@ -12,6 +12,11 @@ class DeviceBrandTest < ActiveSupport::TestCase
     assert @sony.valid?
   end
 
+  test "name should be present" do
+    @samsung.name = "   "
+    assert_not @samsung.valid?
+  end
+
   test "name should be between 2 and 50 characters" do
     @samsung.name = "a"
     assert_not @samsung.valid?

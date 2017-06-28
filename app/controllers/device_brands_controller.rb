@@ -44,7 +44,7 @@ class DeviceBrandsController < ApplicationController
   # Private methods
   private
 
-    # Strong remote parameters for security
+    # Strong parameters for security
     def device_brand_params
       params.require(:device_brand).permit(:name)
     end

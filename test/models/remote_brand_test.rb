@@ -13,11 +13,10 @@ class RemoteBrandTest < ActiveSupport::TestCase
   end
 
   ## name validation
-  test "name should be in allowed list only" do
-    @samsung.name = "Not In List"
+
+  test "name should be present" do
+    @samsung.name = "   "
     assert_not @samsung.valid?
-    @samsung.name = "Samsung"
-    assert @samsung.valid?
   end
 
   test "name should be between 2 and 50 characters" do
@@ -25,5 +24,10 @@ class RemoteBrandTest < ActiveSupport::TestCase
     assert_not @samsung.valid?
     @samsung.name = "a" * 51
     assert_not @samsung.valid?
+  end
+
+  test "name should be unique" do
+    same_brand = RemoteBrand.create(name: @samsung.name)
+    assert_not same_brand.valid?
   end
 end

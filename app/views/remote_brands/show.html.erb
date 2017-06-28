@@ -1,0 +1,13 @@
+<% provide(:title, full_title("#{@remote_brand.name}")) %>
+
+<h1>
+  <%= "#{@remote_brand.name}" %>
+</h1>
+<h2>
+  Remotes:
+</h2>
+<ul>
+  <% @remote_brand.remotes.each do |remote| %>
+    <li><%= remote.name %></li>
+  <% end %>
+</ul>
