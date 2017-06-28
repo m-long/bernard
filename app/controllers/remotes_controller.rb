@@ -1,13 +1,15 @@
 class RemotesController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :admin_user,     only: :destroy
+  before_action :logged_in_user
+  before_action :admin_user
 
   def new
     @remote = Remote.new
     @remote_brands = RemoteBrand.all
+    @device_models = DeviceModel.all
   end
 
   def create
+    device_models = params[:remote][:device_model_ids]
     @remote = Remote.new(remote_params)
     if @remote.save
       flash[:success] = 'Remote created successfully.'
@@ -59,7 +61,8 @@ class RemotesController < ApplicationController
                                      :pre, :post, :gap, :repeat_gap,
                                      :min_repeat, :toggle_bit,
                                      :toggle_bit_mask, :repeat_mask,
-                                     :frequency, :duty_cycle
+                                     :frequency, :duty_cycle,
+                                     :device_model_ids => []
                                     )
     end
 end

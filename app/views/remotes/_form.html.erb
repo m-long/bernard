@@ -10,5 +10,10 @@
   <%= f.label :model %>
   <%= f.text_field :model, class: 'form-control' %>
 
+  <%= f.label :device_model_ids, "Device Models Supported" %>
+  <%= f.collection_check_boxes :device_model_ids, @device_models, :id, :model, html_options: { class: 'form-control' } %>
+
+  <%= f.label :model %>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
