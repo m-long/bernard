@@ -25,6 +25,8 @@ class RemotesController < ApplicationController
 
   def edit
     @remote = Remote.find(params[:id])
+    @remote_brands = RemoteBrand.all
+    @device_models = DeviceModel.all
   end
 
   def update
