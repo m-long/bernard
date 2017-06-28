@@ -1,19 +1,46 @@
-<%= form_for(@remote, url: yield(:form_url)) do |f| %>
+<%= form_for(@remote, url: yield(:form_url), html: { class: "form-horizontal"}) do |f| %>
   <%= render 'shared/error_messages', object: @remote %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, { class: 'form-control', placeholder: 'Remote name...' } %>
+    </div>
+  </div>
 
-  <%= f.label :remote_brand_id, "Brand" %>
-  <%= f.select :remote_brand_id, @remote_brands.collect { |b| [ b.name, b.id ] }, { include_blank: false }, { class: 'form-control' } %>
+  <div class="form-group">
+    <%= f.label :remote_brand_id, "Brand", class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.select :remote_brand_id, @remote_brands.collect { |b| [ b.name, b.id ] }, { include_blank: false }, { class: 'form-control' } %>
+    </div>
+  </div>
 
-  <%= f.label :model %>
-  <%= f.text_field :model, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :model, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :model, { class: 'form-control', placeholder: 'Model...' } %>
+    </div>
+  </div>
 
-  <%= f.label :device_model_ids, "Device Models Supported" %>
-  <%= f.collection_check_boxes :device_model_ids, @device_models, :id, :model, html_options: { class: 'form-control' } %>
-
-  <%= f.label :model %>
+  <div class="form-group">
+    <%= f.label :device_model_ids, "Device Models Supported", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <div class="container-fluid">
+        <div class="row">
+          <%= f.collection_check_boxes :device_model_ids,
+            @device_models, :id, :model, {}, {} do |c|%>
+            <div class="col-sm-6">
+              <%= 
+                c.label(class: 'checkbox') { 
+                  c.check_box + " #{c.text} (#{c.object.brand.name})" 
+                }
+              %>
+            </div>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  </div>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
