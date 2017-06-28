@@ -22,8 +22,6 @@ class DeviceTypesController < ApplicationController
 
   def edit
     @device_type = DeviceType.find(params[:id])
-    @device_brands = DeviceBrand.all
-    @device_types  = DeviceType.all
   end
 
   def update

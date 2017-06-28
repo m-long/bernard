@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   resources :remote_brands,
               only: [:new, :create, :show, :edit, :update, :destroy]
   ## Routes for devices
-  #resources :devices,
-  #            only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :devices,
+              only: [:new, :create, :show, :edit, :update, :destroy]
   ## Routes for device brands
   resources :device_brands,
               only: [:new, :create, :show, :edit, :update, :destroy]
