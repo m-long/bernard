@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   ## Routes for password resets
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
+  ## Routes for locations
+  resources :users do
+    resources :locations, 
+                only: [:new, :create, :show, :edit, :update, :destroy]
+  end
   ## Routes for remotes
   resources :remotes, only: [:new, :create, :show, :edit, :update, :destroy]
   ## Routes for remote brands
