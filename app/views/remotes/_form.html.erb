@@ -4,8 +4,8 @@
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :brand %>
-  <%= f.text_field :brand, class: 'form-control' %>
+  <%= f.label :remote_brand_id, "Brand" %>
+  <%= f.select :remote_brand_id, @remote_brands.collect { |b| [ b.name, b.id ] }, { include_blank: false }, { class: 'form-control' } %>
 
   <%= f.label :model %>
   <%= f.text_field :model, class: 'form-control' %>

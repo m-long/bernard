@@ -4,6 +4,7 @@ class RemotesController < ApplicationController
 
   def new
     @remote = Remote.new
+    @remote_brands = RemoteBrand.all
   end
 
   def create
@@ -46,7 +47,7 @@ class RemotesController < ApplicationController
 
     # Strong remote parameters for security
     def remote_params
-      params.require(:remote).permit(:name, :brand, :model,
+      params.require(:remote).permit(:name, :remote_brand_id, :model,
                                      :supported_devices, :bits, :flags,
                                      :include, :manual_sort,
                                      :suppress_repeat, :driver, :eps,
