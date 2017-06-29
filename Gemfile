@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 gem 'rails',          '~> 5.1.1'
 gem 'bootstrap-sass', '>= 3.3.6'
 gem 'sass-rails',     '~> 5.0.6'
@@ -14,6 +19,7 @@ gem 'bcrypt',         '>= 3.1.11'
 
 # mqtt gems
 gem 'mqtt',           '~>0.5'
+gem 'alexa_rubykit'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.11'

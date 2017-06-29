@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # Site root
   root 'static_pages#home'
 
-  # Whiskey Page Routes
+  # MQTT Routes
+  post 'interface', to: 'skills#interface, format: :json'
 
   # Users routes
   get    '/signup',  to: 'users#new'
