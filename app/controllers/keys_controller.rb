@@ -4,6 +4,7 @@ class KeysController < ApplicationController
 
   def new
     @key  = Key.new
+    @remotes = Remote.all
   end
 
   def create
@@ -22,6 +23,7 @@ class KeysController < ApplicationController
 
   def edit
     @key = Key.find(params[:id])
+    @remotes = Remote.all
   end
 
   def update

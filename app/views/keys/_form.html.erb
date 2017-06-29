@@ -7,5 +7,25 @@
   <%= f.label :value %>
   <%= f.text_field :value, class: 'form-control' %>
 
+  <div class="form-group">
+    <%= f.label :remote_ids, "Remotes with this key", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <div class="container-fluid">
+        <div class="row">
+          <%= f.collection_check_boxes :remote_ids,
+            @remotes, :id, :name, {}, {} do |r|%>
+            <div class="col-sm-6">
+              <%= 
+                r.label(class: 'checkbox') { 
+                  r.check_box + " #{r.text}" 
+                }
+              %>
+            </div>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  </div>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

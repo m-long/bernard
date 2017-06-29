@@ -3,3 +3,8 @@
 <h1>
   <%= "#{@remote.brand.name} #{@remote.model}" %>
 </h1>
+<ul>
+  <% @remote.keys.each do |key| %>
+    <li><%= key.name %></li>
+  <% end %>
+</ul>
