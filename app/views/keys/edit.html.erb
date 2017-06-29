@@ -1,0 +1,13 @@
+<% provide(:title, "Edit #{@key.name}") %>
+<% provide(:form_url, remote_key_path(@key)) %>
+<% provide(:button_text, 'Save changes') %>
+
+<h1>Update device type <%= @key.name %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "delete", remote_key_path(@key), method: :delete,
+                    data: { confirm: "Delete remote #{@key.name}?" } %>
+    <% end %>

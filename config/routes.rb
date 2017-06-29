@@ -23,11 +23,15 @@ Rails.application.routes.draw do
     resources :locations, 
                 only: [:new, :create, :show, :edit, :update, :destroy] do
       resources :devices, 
-              only: [:new, :create, :show, :edit, :update, :destroy]
+                  only: [:new, :create, :show, :edit, :update, :destroy]
     end
   end
-  ## Routes for remotes
-  resources :remotes, only: [:new, :create, :show, :edit, :update, :destroy]
+  ## Routes for remotes and keys
+  resources :remotes,
+              only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :keys,
+                only: [:new, :create, :show, :edit, :update, :destroy]
+  end
   ## Routes for remote brands
   resources :remote_brands,
               only: [:new, :create, :show, :edit, :update, :destroy]

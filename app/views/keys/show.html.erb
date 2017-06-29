@@ -1,0 +1,13 @@
+<% provide(:title, full_title("#{@key.name}")) %>
+
+<h1>
+  <%= "#{@key.name}" %>
+</h1>
+<h2>
+  Remotes:
+</h2>
+<ul>
+  <% @key.remotes.each do |remote| %>
+    <li><%= remote.name %></li>
+  <% end %>
+</ul>
