@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
     @location = current_user.locations.new(location_params)
     if @location.save
       flash[:success] = 'Location created successfully.'
-      redirect_to user_location_path(@location)
+      redirect_to root_url
     else
       render 'new'
     end

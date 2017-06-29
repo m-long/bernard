@@ -4,13 +4,11 @@
   <%= "#{@device.name}" %>
 </h1>
 <h2>
-  Device Models:
+  Device Model:
 </h2>
-<ul>
-  <% @device.device_models.each do |model| %>
-    <li><%= model.model %></li>
-  <% end %>
-</ul>
+<p>
+  <%= @device.device_model.model %>
+</p>
 <p>
 Location: <%= @device.location.name %>
 </p>

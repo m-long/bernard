@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   ## Routes for locations
   resources :users do
     resources :locations, 
-                only: [:new, :create, :show, :edit, :update, :destroy]
+                only: [:new, :create, :show, :edit, :update, :destroy] do
+      resources :devices, 
+              only: [:new, :create, :show, :edit, :update, :destroy]
+    end
   end
   ## Routes for remotes
   resources :remotes, only: [:new, :create, :show, :edit, :update, :destroy]
@@ -29,8 +32,8 @@ Rails.application.routes.draw do
   resources :remote_brands,
               only: [:new, :create, :show, :edit, :update, :destroy]
   ## Routes for devices
-  resources :devices,
-              only: [:new, :create, :show, :edit, :update, :destroy]
+  #resources :devices,
+  #            only: [:new, :create, :show, :edit, :update, :destroy]
   ## Routes for device brands
   resources :device_brands,
               only: [:new, :create, :show, :edit, :update, :destroy]

@@ -32,7 +32,7 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
     if @device.update_attributes(device_params)
       flash[:success] = "Device updated"
-      redirect_to @device
+      redirect_to user_location_device_path(@device)
     else
       render 'edit'
     end
