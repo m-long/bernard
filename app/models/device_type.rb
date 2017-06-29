@@ -1,6 +1,7 @@
 class DeviceType < ApplicationRecord
   # Associations
   has_many :device_models
+  has_many :device_commands
 
   # Validations
   VALID_DEVICE_TYPE_REGEX = /\A[a-zA-Z -]+\z/

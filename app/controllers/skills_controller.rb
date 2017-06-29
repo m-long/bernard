@@ -1,11 +1,28 @@
 class SkillsController < ApplicationController
-  include MqttHelper
+  #include MqttHelper
 
   # Before Actions
   skip_before_action :verify_authenticity_token
-
+=begin
   def interface
     input = AlexaRubykit::build_request(params)
+    output = AlexaRubykit::Response.new
+    session_end = true
+    message = "There was an error"
+
+    case input.type
+    when "LAUNCH_REQUEST"
+      # User talked to Bernard but did not say something matching an intent"
+      message = "This is Bernard. How can I help you?"
+    when "SESSION_ENDED_REQUEST"
+      # it's over
+      message = nil
+    when "INTENT_REQUEST"
+    end
+  end
+=end
+  def old_interface
+    input  = AlexaRubykit::build_request(params)
     output = AlexaRubykit::Response.new
     session_end = true
     message = "There was an error"
@@ -99,7 +116,7 @@ class SkillsController < ApplicationController
 
     def send_command(tv_command)
       MQTT::Client.connect(
-        host: 'mqtt.mattlong.la',
+        host: 'bernard.mattlong.la',
         port: 8883,
         username: 'matt',
         password: 'fuckthis',
@@ -108,6 +125,4 @@ class SkillsController < ApplicationController
         c.publish("Samsung", "#{tv_command.downcase}")
       end
     end
-end
-  end
 end
