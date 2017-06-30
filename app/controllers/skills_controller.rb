@@ -21,6 +21,7 @@ class SkillsController < ApplicationController
     end
   end
 =end
+
   def old_interface
     input  = AlexaRubykit::build_request(params)
     output = AlexaRubykit::Response.new
@@ -92,9 +93,11 @@ class SkillsController < ApplicationController
       when "ChangeSource"
         message = "Change source"
 
-        tv_source = input.slots["TVSource"]["value"]
-        if tv_source && [ "cable", "tv"].include?(tv_source.downcase)
-          message << " to #{tv_source}"
+        if input.slots && input.slots["TVSource"]
+          tv_source = input.slots["TVSource"]["value"]
+          if tv_source && [ "cable", "tv"].include?(tv_source.downcase)
+            message << " to #{tv_source}"
+          end
         end
         send_command(message)
       end
