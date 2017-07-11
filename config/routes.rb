@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   # MQTT Routes
-  post 'interface', to: 'skills#old_interface', format: :json
+  post 'interface', to: 'skills#interface', format: :json
 
   # Users routes
   get    '/signup',  to: 'users#new'

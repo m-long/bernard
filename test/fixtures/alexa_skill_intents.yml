@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cancel_intent:
+  name: "CancelIntent"
+  message: "Cancel"
+  voice_response: "Very good sir."
+
+help_intent:
+  name: "HelpIntent"
+  message: "Help"
+  voice_response: "What should I do sir?"
+
+stop_intent:
+  name: "StopIntent"
+  message: "Stop"
+  voice_response: "Very good sir."
+
+channel_change:
+  name: "ChannelChange"
+  message: "channel change"
+  voice_response: "Ok"
+
+channel_previous:
+  name: "ChannelPrevious"
+  message: "channel previous"
+  voice_response: "Ok"
+
+channel_set:
+  name: "ChannelSet"
+  message: "channel set"
+  voice_response: "Channel"
+
+power_cycle:
+  name: "PowerCycle"
+  message: "power"
+  voice_response: "Power"
+
+source_change:
+  name: "SourceChange"
+  message: "source change"
+  voice_response: "Ok"
+
+volume_change:
+  name: "VolumeChange"
+  message: "volume change"
+  voice_response: "Ok"
+
+volume_mute:
+  name: "VolumeMute"
+  message: "volume mute"
+  voice_response: "Muted"

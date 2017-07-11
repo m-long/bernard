@@ -9,6 +9,8 @@ class RemotesController < ApplicationController
   end
 
   def create
+    @remote_brands = RemoteBrand.all
+    @device_models = DeviceModel.all
     device_models = params[:remote][:device_model_ids]
     @remote = Remote.new(remote_params)
     if @remote.save

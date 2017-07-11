@@ -1,0 +1,106 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+channel_change_count:
+  name: "Count"
+  test_value: "5"
+  alexa_skill_intent: chanel_change
+
+channel_change_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: chanel_change
+
+channel_change_direction:
+  name: "Direction"
+  test_value: "up"
+  alexa_skill_intent: chanel_change
+
+channel_change_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: chanel_change
+
+channel_previous_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: chanel_previous
+
+channel_previous_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: chanel_previous
+
+channel_set_channelnumber:
+  name: "ChannelNumber"
+  test_value: "25"
+  alexa_skill_intent: chanel_set
+
+channel_set_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: chanel_set
+
+channel_set_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: chanel_set
+
+power_cycle_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: power_cycle
+
+power_cycle_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: power_cycle
+
+source_change_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: source_change
+
+source_change_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: source_change
+
+source_change_source:
+  name: "Source"
+  test_value: "cable"
+  alexa_skill_intent: source_change
+
+volume_change_count:
+  name: "Count"
+  test_value: "5"
+  alexa_skill_intent: volume_change
+
+volume_change_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: volume_change
+
+volume_change_direction:
+  name: "Direction"
+  test_value: "up"
+  alexa_skill_intent: volume_change
+
+volume_change_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: volume_change
+
+volume_mute_device:
+  name: "Device"
+  test_value: "tv"
+  alexa_skill_intent: volume_mute
+
+volume_mute_mute:
+  name: "Mute"
+  test_value: "mute"
+  alexa_skill_intent: volume_mute
+
+volume_mute_room:
+  name: "Room"
+  test_value: "bedroom"
+  alexa_skill_intent: volume_mute
